@@ -1,0 +1,107 @@
+<ng-template #loading>
+  <div class="alert alert-info text-center">
+    Espere por Favor
+  </div>
+</ng-template>
+
+
+
+<div *ngIf="country; else loading">
+<div class="row">
+  <div class="col-12 d-flex gap-2 w-100 justify-content-between my-2  ">
+    <div  class="col"><h2> <strong> {{ country.name.common }}  </strong></h2>
+      <h6> <strong> {{ country.name.official }}  </strong></h6>
+    </div>
+
+    <img class="img-thumbnail fload-end"  style="width: 3rem;" *ngIf="country.coatOfArms.svg" [src]="country.coatOfArms.svg" [alt]="country.name.common" >
+  </div>
+  <hr>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <h3>Bandera</h3>
+    <img [src]="country.flags.svg" [alt]="country.flags.svg" class="img-thumbnail">
+
+    <li class="d-flex gap-2 w-100 align-items-center mt-2">
+
+      <i class="fa fa-caret-right fa-lg " aria-hidden="true"></i>
+      <h6 class="mb-0">Código</h6>
+      <p class="mb-0 opacity-75">{{ country.cca3 }}</p>
+
+    </li>
+  </div>
+  <div class="col">
+    <h3>Información</h3>
+    <ul class="list-group">
+      <li class="list-group-item d-flex gap-2 w-100 align-items-center">
+
+          <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+          <h6 class="mb-0">Capital:</h6>
+          <p class="mb-0 opacity-75">{{ country.capital }}</p>
+
+      </li>
+      <li class="list-group-item d-flex gap-2 w-100 align-items-center">
+
+          <i class="fa fa-users fa-lg" aria-hidden="true"></i>
+          <h6 class="mb-0">Población:</h6>
+          <p class="mb-0 opacity-75">{{ country.population | number }}</p>
+
+      </li>
+
+      <li class="list-group-item d-flex gap-2 w-100 align-items-center">
+
+        <i class="fa fa-globe fa-lg" aria-hidden="true"></i>
+        <h6 class="mb-0">Región:</h6>
+        <p class="mb-0 opacity-75">{{ country.region }}</p>
+        <h6 class="mb-0">Continente:</h6>
+        <p class="mb-0 opacity-75">{{ country.continents }}</p>
+
+    </li>
+
+    <li class="list-group-item d-flex gap-2 w-100 align-items-center">
+
+        <i class="fa fa-language fa-lg" aria-hidden="true"></i>
+        <h6 class="mb-0">Idioma:</h6>
+        <p class="mb-0 opacity-75" *ngFor="let entry of country.languages | toArray;">{{ entry }} </p>
+    </li>
+
+    <li class="list-group-item d-flex gap-2 w-100 align-items-center">
+
+      <i class="fa fa-language fa-lg" aria-hidden="true"></i>
+      <h6 class="mb-0">Moneda:</h6>
+      <p class="mb-0 opacity-75" *ngFor="let entry of country.currencies| toArray;">{{  entry.symbol }} {{ entry.name  }}</p>
+  </li>
+
+  <li class="list-group-item d-flex gap-2 w-100 align-items-center">
+
+    <i class="fa fa-arrows-h fa-lg" aria-hidden="true"></i>
+    <h6 class="mb-0">Latitud:</h6>
+    <p class="mb-0 opacity-75">{{ country.latlng[0] }}</p>
+    <i class="fa fa-arrows-v fa-lg" aria-hidden="true"></i>
+    <h6 class="mb-0">Longitud:</h6>
+    <p class="mb-0 opacity-75">{{ country.latlng[1] }}</p>
+
+</li>
+
+
+
+
+    </ul>
+  </div>
+</div>
+
+
+
+
+<div class="row mx-auto mt-4 p-3 border border-light-subtle rounded ">
+  <div class="col">
+    <h3>Traducciones</h3>
+    <div class="d-flex flex-wrap">
+      <span class="badge bg-primary m-1" *ngFor="let entry of country.translations | toArray;" >{{ entry.common }}</span>
+    </div>
+  </div>
+</div>
+
+
+</div>

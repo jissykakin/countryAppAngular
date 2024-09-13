@@ -1,0 +1,53 @@
+
+
+  <div class="d-flex flex-column flex-shrink-0 p-3 ">
+    <a  href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+      <img class="bi pe-none me-2" src="./favicon.ico" alt="Iconos" >
+      <span class="fs-4">Paises</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills d-flex flex-column flex-shrink-0">
+      <li *ngFor="let item of menuItems">
+        <a href="#"
+        [routerLink]="item.routerLink"
+        routerLinkActive="active"
+        class="nav-link d-flex align-istems-center py-3 "
+        aria-current="page">
+          <span class="material-symbols-outlined bi pe-none me-2"> {{ item.icon }} </span>
+          {{ item.label }}
+        </a>
+      </li>
+
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a  class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>UserName</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li><a class="dropdown-item" routerLink="home">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+     <!-- <li
+  routerLink=""
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact : true }"
+  class="list-group-item">
+    Home Page
+  </li>
+ <li routerLink="about"
+  routerLinkActive="active"
+  class="list-group-item">
+    About
+  </li>
+  <li routerLink="contact"
+  routerLinkActive="active"
+  class="list-group-item">
+    Contact
+  </li> -->

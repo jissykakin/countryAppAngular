@@ -1,0 +1,17 @@
+<!-- (keyup.enter)="emitValue( txtInput.value )" -->
+<div class="container-1">
+  <span class="icon"><i class="fa fa-search"></i></span>
+<input
+type="search"
+name="search"
+id="search"
+class="form-control"
+aria-label="Search"
+[placeholder]="placeholder"
+[value]="initialValue"
+(keypress)="onKeyPress(txtInput.value)"
+#txtInput
+>
+</div>
+
+

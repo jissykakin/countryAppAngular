@@ -1,0 +1,34 @@
+
+<shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+
+
+<div class="row ">
+  <div class="row bg-secondary text-white rounded mx-auto p-3 mb-2">
+    <h2 class="display-6 ">Busqueda Por Región</h2>
+
+  </div>
+
+    <div class="col text-center" >
+
+      <button *ngFor="let region of regions"
+      class="btn mx-2"
+      [ngClass]="{ 'btn-outline-primary': selectedRegion === region }"
+      (click)="searchByRegion( region )"
+      >
+      {{ region }}
+      </button>
+      <hr>
+  </div>
+</div>
+
+
+  <div class="row mx-auto mt-4 p-3 border border-light-subtle rounded">
+
+   <hr>
+   <countries-table
+   [countries]="countries"
+   ></countries-table>
+
+
+</div>
+

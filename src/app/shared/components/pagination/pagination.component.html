@@ -1,0 +1,14 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    <li class="page-item" [ngClass]="{ disabled : page === 1 } " >
+      <a class="page-link" (click)="emitValue(page - 1)">Previous</a>
+    </li>
+    <li class="page-item" *ngFor="let item of [].constructor(totalPages) ; let i = index  ">
+      <a class="page-link" (click)="emitValue(i + 1)" > {{ i + 1 }} </a></li>
+    <li class="page-item">
+      <a class="page-link"
+      [ngClass]="{ disabled : page === totalPages } "
+      (click)="emitValue( page + 1 )" >Next</a>
+    </li>
+  </ul>
+</nav>
